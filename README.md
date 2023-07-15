@@ -9,7 +9,7 @@ Step 3 -> run command "docker-compose up --build" <br />
 Exposed PORT -> 8000 <br />
 APIs -> <br />
 1) localhost:8000/bitespeed/getAll -> Returns all the contacts and their details for reference purposes <br />
-2) localhost:8000/bitespeed/getAll -> The API mentioned in the task. <br />
+2) localhost:8000/bitespeed/identify -> The API mentioned in the task. <br />
 cURL ->
 ```
 curl --location 'localhost:8000/bitespeed/identify' \
