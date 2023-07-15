@@ -3,7 +3,7 @@
 
 This is the repository for the bitespeed task -> https://bitespeed.notion.site/Bitespeed-Backend-Task-Identity-Reconciliation-53392ab01fe149fab989422300423199
 
-Step 1 -> download the code <br />
+Step 1 -> download the code from branch master <br />
 Step 2 -> Create a database called "bitespeed" <br />
 Step 3 -> run command "docker-compose up --build" <br />
 Exposed PORT -> 8000 <br />
