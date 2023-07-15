@@ -17,10 +17,7 @@ func InitializeDB() {
 	HOST := os.Getenv("DB_HOST")
 	DBNAME := os.Getenv("DB_NAME")
 
-	URL := fmt.Sprintf("%s:%s@tcp(%s)/%s?charset=utf8&parseTime=True&loc=Local", USER, PASS,
-		HOST, DBNAME)
-	// db, err := gorm.Open(mysql.Open("root:krishna@tcp(127.0.0.1:3306)/bitespeed?charset=utf8mb4&parseTime=True&loc=Local"), &gorm.Config{})
-	fmt.Println(URL)
+	URL := fmt.Sprintf("%s:%s@tcp(%s)/%s?charset=utf8&parseTime=True&loc=Local", USER, PASS,HOST, DBNAME)
 	db, err := gorm.Open(mysql.Open(URL))
 	if err != nil {
 		panic("failed to connect database")

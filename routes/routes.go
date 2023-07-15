@@ -41,7 +41,6 @@ func Routes(route *gin.Engine) {
 			}
 
 			query := config.DB.Debug().Where("(phone_number = ? OR email = ?) AND link_precedence = ?", input.PhoneNumber, input.Email, "secondary").Find(&secondaryContact)
-			fmt.Println("query: ", secondaryContact)
 			if query.Error != nil {
 				fmt.Println("Error while retreiving primary contacts")
 			}
@@ -51,7 +50,6 @@ func Routes(route *gin.Engine) {
 
 			if secondaryContact.LinkedIn == 0 {
 				query := config.DB.Debug().Where("(phone_number = ? OR email = ?) AND link_precedence = ?", input.PhoneNumber, input.Email, "primary").Find(&primaryContact)
-				fmt.Println("secondary bt primary: ", primaryContact)
 				linkedId = primaryContact.Id
 				if query.Error != nil {
 					fmt.Println("Error while retreiving primary contacts")
@@ -67,12 +65,6 @@ func Routes(route *gin.Engine) {
 						CreatedAt:      time.Now(),
 					})
 				flag = true
-				fmt.Println("query: ", &models.Contact{
-					Email:          input.Email,
-					PhoneNumber:    input.PhoneNumber,
-					LinkPrecedence: "primary",
-					CreatedAt:      time.Now(),
-				})
 				if create.Error != nil {
 					fmt.Println("Error while creating primary contacts")
 				}
